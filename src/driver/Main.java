@@ -1,7 +1,7 @@
 package driver;
 import java.util.Scanner;
 import model.Employee;
-import services.GenerateCredentials;
+import services.CredentialService;
 
 public class Main {
 
@@ -16,7 +16,7 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		int deprtType = scan.nextInt();
 		Employee emp = new Employee("Krishna", "Kumar");
-		GenerateCredentials generateCred = new GenerateCredentials(emp);
+		CredentialService generateCred = new CredentialService(emp);
 		
 		switch(deprtType) {
 			case 1:

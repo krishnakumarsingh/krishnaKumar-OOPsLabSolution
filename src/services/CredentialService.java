@@ -3,10 +3,10 @@ import java.util.Random;
 
 import model.Employee;
 
-public class GenerateCredentials {
+public class CredentialService {
 	Employee emp;
 	
-	public GenerateCredentials(Employee emp) {
+	public CredentialService(Employee emp) {
 		super();
 		this.emp = emp;
 	}
