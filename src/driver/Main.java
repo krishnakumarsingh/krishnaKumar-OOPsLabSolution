@@ -1,7 +1,7 @@
 package driver;
 import java.util.Scanner;
 import model.Employee;
-import model.GenerateCredentials;
+import services.GenerateCredentials;
 
 public class Main {
 
