@@ -16,29 +16,27 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		int deprtType = scan.nextInt();
 		Employee emp = new Employee("Krishna", "Kumar");
-		GenerateCredentials generateCred = new GenerateCredentials();
-		System.out.println("Dear " + emp.getFirstName() + " your generated credentials are as follows");
-	
+		GenerateCredentials generateCred = new GenerateCredentials(emp);
+		
 		switch(deprtType) {
 			case 1:
-				System.out.println("Email : " + generateCred.generateEmail(emp.getFirstName(), emp.getLastName(), "tech"));
-				System.out.println("Password : " + String.valueOf(generateCred.generatePassword()));
+				emp.setDeptName("tech");
 				break;
 			case 2:
-				System.out.println("Email : " + generateCred.generateEmail(emp.getFirstName(), emp.getLastName(), "admin"));
-				System.out.println("Password : " + String.valueOf(generateCred.generatePassword()));
+				emp.setDeptName("admin");
 				break;
 			case 3:
-				System.out.println("Email : " + generateCred.generateEmail(emp.getFirstName(), emp.getLastName(), "hr"));
-				System.out.println("Password : " + String.valueOf(generateCred.generatePassword()));
+				emp.setDeptName("hr");
 				break;
 			case 4:
-				System.out.println("Email : " + generateCred.generateEmail(emp.getFirstName(), emp.getLastName(), "legal"));
-				System.out.println("Password : " + String.valueOf(generateCred.generatePassword()));
+				emp.setDeptName("legal");
 				break;
 			default:
 				System.out.println("Not found");
 		}
+		generateCred.generateEmail();
+		generateCred.generatePassword();
+		generateCred.showCredentials();
 	}
 
 }

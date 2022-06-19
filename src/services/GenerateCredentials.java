@@ -1,13 +1,21 @@
 package services;
 import java.util.Random;
 
-public class GenerateCredentials {
+import model.Employee;
 
-	public String generateEmail(String firstName, String lastName, String deprtType) {
-		return firstName.toLowerCase() + lastName.toLowerCase() + "@" + deprtType + ".abc.com";
+public class GenerateCredentials {
+	Employee emp;
+	
+	public GenerateCredentials(Employee emp) {
+		super();
+		this.emp = emp;
+	}
+
+	public void generateEmail() {
+		emp.setEmail(emp.getFirstName() + emp.getLastName() + "@" + emp.getDeptName() + ".abc.com");
 	}
 	
-	public char[] generatePassword() {
+	public void generatePassword() {
 		String capitalCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
         String specialCharacters = "!@#$";
@@ -23,7 +31,12 @@ public class GenerateCredentials {
 	    for(int i = 4; i< 8 ; i++) {
 		  password[i] = combinedChars.charAt(random.nextInt(combinedChars.length()));
 	    }
-	    return password;
+	    emp.setPassword(password);
 	}
-
+	
+	public void showCredentials() {
+		System.out.println("Dear " + emp.getFirstName() + " your generated credentials are as follows");
+		System.out.println("Email : "+ emp.getEmail());
+		System.out.println("Password : "+ new String(emp.getPassword()));
+	}
 }
